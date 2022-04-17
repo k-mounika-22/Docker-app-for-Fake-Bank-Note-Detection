@@ -4,7 +4,6 @@
 #### Contributor(s): Shubham, Yash Sethia, Ritesh Kumar 
 ![Snapshot](Homepage.jpg)
 
-Create a docker container and host it in Azure with this tutorial
 ----------
 ### About
 
