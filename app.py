@@ -26,6 +26,7 @@ classifier = pickle.load(pickle_in)
 
 
 def help(data):
+    sum = np.sum(data)
     coeffs = pywt.dwt2(data, 'haar')
     cA, (cH, cV, cD) = coeffs
 
@@ -105,13 +106,10 @@ def main():
     if uploaded_file is not None:
         img = Image.open(uploaded_file)
         st.image(img, caption='Uploaded Image')
+        img = img.resize((400, 400))
         img_arr = np.array(img)
         # st.write(img_arr)
         var, skew, curt, ent = help(img_arr)
-        # st.write(var)
-        # st.write(skew)
-        # st.write(curt)
-        # st.write(ent)
 
         if st.button("Predict"):
             result = predict_note_authentication(var, skew, curt, ent)

@@ -1,7 +1,6 @@
-FROM continuumio/anaconda3
+FROM continuumio/anaconda3:4.4.0
 COPY . /usr/app/
-EXPOSE 8501
+EXPOSE 5000
 WORKDIR /usr/app/
 RUN pip install -r requirements.txt
-ENTRYPOINT ["streamlit", "run"]
-CMD ["app1.py"]
+CMD python flask_api.py

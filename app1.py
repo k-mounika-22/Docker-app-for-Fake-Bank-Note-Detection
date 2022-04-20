@@ -1,60 +1,39 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun April 17 2022
+Created on Sat Jun 13 02:20:31 2020
 
-@author: Shubham
+@author: Krish Naik
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Fri May 15 12:50:04 2020
+
+@author: krish.naik
 """
 
 
-#from flasgger import Swagger
-
-
-# app=Flask(__name__)
-# Swagger(app)
-
-from PIL import Image
 import numpy as np
 import pickle
 import pandas as pd
-import streamlit as st
-from scipy.stats import kurtosis, entropy
-import pywt
+#from flasgger import Swagger
+import streamlit as st 
 
-pickle_in = open("classifier.pkl", "rb")
-classifier = pickle.load(pickle_in)
+from PIL import Image
 
-# @app.route('/')
+#app=Flask(__name__)
+#Swagger(app)
 
+pickle_in = open("classifier.pkl","rb")
+classifier=pickle.load(pickle_in)
 
-def help(data):
-    coeffs = pywt.dwt2(data, 'haar')
-    cA, (cH, cV, cD) = coeffs
-
-    var = np.var(cA)
-
-    top, bottom = np.array_split(cA, 2)
-    if top.shape[0] != bottom.shape[0]:
-        top = top[:-1]
-    diff = np.absolute(top-bottom)
-    asym = np.sum(diff)
-
-    kurt = np.sum(kurtosis(cA))
-
-    ent = np.sum(entropy(cA))
-
-    df = pd.read_csv("TestFile.csv")
-    idx = data[0][0][0] % df.shape[0]
-    arr = df.iloc[idx]
-    return arr
-
-
+#@app.route('/')
 def welcome():
     return "Welcome All"
 
-# @app.route('/predict',methods=["Get"])
-
-
-def predict_note_authentication(variance, skewness, curtosis, entropy):
+#@app.route('/predict',methods=["Get"])
+def predict_note_authentication(variance,skewness,curtosis,entropy):
+    
     """Let's Authenticate the Banks Note 
     This is using docstrings for specifications.
     ---
@@ -78,54 +57,37 @@ def predict_note_authentication(variance, skewness, curtosis, entropy):
     responses:
         200:
             description: The output values
-
+        
     """
-
-    prediction = classifier.predict([[variance, skewness, curtosis, entropy]])
-    # print(prediction)
+   
+    prediction=classifier.predict([[variance,skewness,curtosis,entropy]])
+    print(prediction)
     return prediction
 
 
+
 def main():
-    st.title("Fake Bank Note Detector")
+    st.title("Bank Authenticator")
     html_temp = """
     <div style="background-color:tomato;padding:10px">
-    <h2 style="color:white;text-align:center;">Fake Bank Note Detector using Docker</h2>
+    <h2 style="color:white;text-align:center;">Streamlit Bank Authenticator ML App </h2>
     </div>
     """
-    st.markdown(html_temp, unsafe_allow_html=True)
-    # variance = st.text_input("Variance", "Type Here")
-    # skewness = st.text_input("skewness", "Type Here")
-    # curtosis = st.text_input("curtosis", "Type Here")
-    # entropy = st.text_input("entropy", "Type Here")
-    result = ""
-    ans = ""
-    # if st.button("Predict"):
-    #     result = predict_note_authentication(
-    #         variance, skewness, curtosis, entropy)
-    uploaded_file = st.file_uploader("Choose a file")
-    if uploaded_file is not None:
-        img = Image.open(uploaded_file)
-        st.image(img, caption='Uploaded Image')
-        img_arr = np.array(img)
-        # st.write(img_arr)
-        var, skew, curt, ent = help(img_arr)
-        # st.write(var)
-        # st.write(skew)
-        # st.write(curt)
-        # st.write(ent)
+    st.markdown(html_temp,unsafe_allow_html=True)
+    variance = st.text_input("Variance","Type Here")
+    skewness = st.text_input("skewness","Type Here")
+    curtosis = st.text_input("curtosis","Type Here")
+    entropy = st.text_input("entropy","Type Here")
+    result=""
+    if st.button("Predict"):
+        result=predict_note_authentication(variance,skewness,curtosis,entropy)
+    st.success('The output is {}'.format(result))
+    if st.button("About"):
+        st.text("Lets LEarn")
+        st.text("Built with Streamlit")
 
-        if st.button("Predict"):
-            result = predict_note_authentication(var, skew, curt, ent)
-
-            if result == 0:
-                ans = "Real"
-            else:
-                ans = "Fake"
-            # dataframe = pd.read_csv(uploaded_file)
-            # st.write(dataframe)
-            st.success('This Bank Note is {}'.format(ans))
-
-
-if __name__ == '__main__':
+if __name__=='__main__':
     main()
+    
+    
+    
