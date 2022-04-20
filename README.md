@@ -1,12 +1,13 @@
 
 # Docker container running a Streamlit Web App for Fake Bank Note Detection
 
+### Demo
+https://fake-note-detector.herokuapp.com
+
 #### Contributor(s): Shubham, Yash Sethia, Ritesh Kumar 
 ![Snapshot](Homepage.jpg)
 
 ----------
-### Demo
-https://fake-note-detector.herokuapp.com
 
 ### About
 
