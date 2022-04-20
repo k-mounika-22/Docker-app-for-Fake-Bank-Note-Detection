@@ -7,6 +7,9 @@
 ----------
 ### Demo
 https://fake-note-detector.herokuapp.com
+
+### Docker Hub Repository
+https://hub.docker.com/r/tiwarishubham635/banknotedetector
 ### About
 
 Docker is a platform that allows users to easily pack, distribute, and manage applications within containers. It's an open-source project that automates the deployment of applications inside software containers. Gone are the days of an IT professional saying  "*Well, it worked on my machine.*" Not it works on all of our machines.
@@ -32,4 +35,3 @@ Push to docker hub account name/repository. This may take a few minutes
 ```
 docker push tiwarishubham635/banknotedetector
 ```
-Further this can be deployed on Azure, AWS, or Google Cloud Platform.
