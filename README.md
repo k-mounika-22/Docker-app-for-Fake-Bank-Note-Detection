@@ -33,4 +33,3 @@ Push to docker hub account name/repository. This may take a few minutes
 ```
 docker push tiwarishubham635/banknotedetector
 ```
-Further this can be deployed on Azure, AWS, or Google Cloud Platform.
