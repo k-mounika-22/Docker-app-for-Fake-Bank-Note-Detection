@@ -2,9 +2,11 @@
 # Docker container running a Streamlit Web App for Fake Bank Note Detection
 
 #### Contributor(s): Shubham, Yash Sethia, Ritesh Kumar 
+![Picture](Homepage.jpg)
 
-Create a docker container and host it in Azure with this tutorial
 ----------
+### Demo
+https://fake-note-detector.herokuapp.com
 ### About
 
 Docker is a platform that allows users to easily pack, distribute, and manage applications within containers. It's an open-source project that automates the deployment of applications inside software containers. Gone are the days of an IT professional saying  "*Well, it worked on my machine.*" Not it works on all of our machines.
