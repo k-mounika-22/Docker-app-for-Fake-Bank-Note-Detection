@@ -26,7 +26,7 @@ It will take a few minutes to download & install all of the required files
 docker build -t money_api . 
 ```
 
-Run the image locally in debug mode and expose ports 5000
+Run the image locally in debug mode and expose ports 8501
 ```
 docker run -p 8501:8501 money_api
 ```
