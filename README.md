@@ -35,3 +35,10 @@ Push to docker hub account name/repository. This may take a few minutes
 ```
 docker push tiwarishubham635/banknotedetector
 ```
+
+The user can pull the docker image from the docker hub on their system using:
+```
+docker pull tiwarishubham635/banknotedetector
+```
+Then using build and run, the docker image can be run locally.
+Further we have deployed this docker image on Heroku.
