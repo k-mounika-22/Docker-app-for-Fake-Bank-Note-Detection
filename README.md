@@ -5,8 +5,11 @@
 ![Picture](Homepage.jpg)
 
 ----------
-### Demo
+### Demo (Staging)
 https://fake-note-detector.herokuapp.com
+
+### Production (Live)
+https://production-fake-note-detector.herokuapp.com
 
 ### Docker Hub Repository
 https://hub.docker.com/r/tiwarishubham635/banknotedetector
