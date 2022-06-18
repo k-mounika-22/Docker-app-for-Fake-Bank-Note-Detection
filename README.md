@@ -1,5 +1,5 @@
 
-# Docker container running a Streamlit Web App for Fake Bank Note Detection
+# Docker container for Streamlit Web App of Fake Bank Note Detection
 
 #### Contributor(s): Shubham, Yash Sethia, Ritesh Kumar 
 ![Picture](Homepage.jpg)
